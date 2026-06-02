@@ -55,7 +55,7 @@
     "@fontsource/jetbrains-mono": "^5.2.8",
     "@fontsource/newsreader": "^5.2.10",
     "@lhci/cli": "^0.15.1",
-    "@playwright/test": "^1.59.1",
+    "@playwright/test": "^1.60.0",
     "@sveltejs/adapter-cloudflare": "^7.2.8",
     "@sveltejs/eslint-config": "^10.0.1",
     "@sveltejs/kit": "^2.60.1",
