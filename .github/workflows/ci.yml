@@ -5,6 +5,7 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+    types: [opened, synchronize, reopened, ready_for_review]
 
 permissions:
   contents: read
@@ -22,6 +23,7 @@ jobs:
     name: Format, lint, typecheck, test
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    if: ${{ github.event_name == 'push' || !github.event.pull_request.draft }}
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
@@ -74,16 +76,23 @@ jobs:
 
       - name: SonarCloud scan
         if: steps.sonar-token.outputs.available == 'true'
-        # nosemgrep: generic.secrets.security.detected-sonarqube-docs-api-key.detected-sonarqube-docs-api-key
-        uses: SonarSource/sonarqube-scan-action@7006c4492b2e0ee0f816d36501671557c97f5995 # v8.1.0
+        uses: SonarSource/sonarqube-scan-action@7006c4492b2e0ee0f816d36501671557c97f5995 # v8.1.0 nosemgrep: generic.secrets.security.detected-sonarqube-docs-api-key.detected-sonarqube-docs-api-key
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+      - name: SonarCloud Quality Gate check
+        if: steps.sonar-token.outputs.available == 'true'
+        uses: SonarSource/sonarqube-quality-gate-action@cf038b0e0cdecfa9e56c198bbb7d21d751d62c3b # v1.2.0
+        timeout-minutes: 5
+        env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   build:
     name: Build
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    if: ${{ github.event_name == 'push' || !github.event.pull_request.draft }}
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
@@ -115,6 +124,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    if: ${{ github.event_name == 'push' || !github.event.pull_request.draft }}
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
@@ -148,6 +158,21 @@ jobs:
           if-no-files-found: ignore
           retention-days: 7
 
+  semgrep:
+    name: Semgrep scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    container:
+      image: returntocorp/semgrep
+    if: ${{ github.actor != 'dependabot[bot]' && (github.event_name == 'push' || !github.event.pull_request.draft) }}
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Run Semgrep CI (code + supply chain)
+        env:
+          SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+        run: semgrep ci --supply-chain
+
   # Lighthouse CI is intentionally NOT a GHA job — runner-vs-local variance
   # makes the strict 100/100/100/100 floor noisy on shared infrastructure.
   # `pnpm perf` runs locally via lefthook (`lefthook run perf`).
@@ -156,6 +181,7 @@ jobs:
     name: Secret scan
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    if: ${{ github.event_name == 'push' || !github.event.pull_request.draft }}
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
