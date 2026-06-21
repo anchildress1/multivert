@@ -132,10 +132,21 @@
 	}
 }
 
+/* Halve the backdrop-filter blur radius on narrow viewports. The full
+   blur(32px) is GPU-composited per-element and stacks up across the
+   sticky banner, hero card, swatch, breakdown chips, and sheet — on
+   mobile that cost is measurable. blur(16px) preserves the glass read
+   while keeping the compositor load in check. */
+@media (max-width: 60rem) {
+	:root {
+		--glass-filter: blur(16px) saturate(1.1);
+	}
+}
+
 @theme {
-	--font-display: 'Newsreader', 'Iowan Old Style', Georgia, serif;
+	--font-display: 'Newsreader Variable', 'Newsreader', 'Iowan Old Style', Georgia, serif;
 	--font-sans: 'Geist Variable', 'Geist', 'Söhne', -apple-system, BlinkMacSystemFont, sans-serif;
-	--font-mono: 'JetBrains Mono', 'Geist Mono', ui-monospace, monospace;
+	--font-mono: 'JetBrains Mono Variable', 'JetBrains Mono', 'Geist Mono', ui-monospace, monospace;
 }
 
 /* Root foundation + page-level snap.
