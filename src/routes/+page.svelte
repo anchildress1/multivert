@@ -143,7 +143,7 @@
 	const prefersReducedMotion = (): boolean =>
 		globalThis.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches ?? false;
 
-	function scrollToId(id: string, event?: Event) {
+	function scrollToId(id: string, event: Event | undefined = undefined) {
 		if (!browser) return;
 		event?.preventDefault();
 		const el = document.getElementById(id);
@@ -533,6 +533,12 @@
 		pointer-events: none;
 		z-index: 0;
 		filter: blur(80px);
+	}
+
+	@media (max-width: 60rem) {
+		.hero::before {
+			filter: blur(40px);
+		}
 	}
 
 	.hero__bar {

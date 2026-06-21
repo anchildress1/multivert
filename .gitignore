@@ -24,6 +24,8 @@ coverage/
 playwright-report/
 playwright/.cache/
 test-results/
+# Playwright MCP
+.playwright-mcp/
 .lighthouseci/
 
 # Logs

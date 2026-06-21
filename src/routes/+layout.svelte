@@ -1,15 +1,17 @@
 <script lang="ts">
-	import '@fontsource/newsreader/400.css';
-	import '@fontsource/newsreader/500.css';
-	import '@fontsource/newsreader/400-italic.css';
-	import '@fontsource/newsreader/500-italic.css';
+	import '@fontsource-variable/newsreader/index.css';
+	import '@fontsource-variable/newsreader/wght-italic.css';
 	import '@fontsource-variable/geist/index.css';
-	import '@fontsource/jetbrains-mono/400.css';
-	import '@fontsource/jetbrains-mono/500.css';
+	import '@fontsource-variable/jetbrains-mono/index.css';
 
 	import '../app.css';
+	import { onMount } from 'svelte';
 
 	const { children } = $props();
+
+	onMount(() => {
+		document.getElementById('app-shell')?.remove();
+	});
 </script>
 
 {@render children?.()}
