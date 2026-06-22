@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.1](https://github.com/anchildress1/multivert/compare/v1.2.0...v1.2.1) (2026-06-22)
+
+
+### Bug Fixes
+
+* **deploy:** drop self-bootstrap + wrangler-action gitHubToken ([#21](https://github.com/anchildress1/multivert/issues/21)) ([2ef3fab](https://github.com/anchildress1/multivert/commit/2ef3fab8243ce9a533e2fe5fd13d5978c3cdfabd))
+* security patches, CI consolidation, perf, deps update ([#52](https://github.com/anchildress1/multivert/issues/52)) ([f1d26f0](https://github.com/anchildress1/multivert/commit/f1d26f0c5d0737148942ef652b686983301e597d))
+
 ## [1.2.0](https://github.com/anchildress1/multivert/compare/v1.1.2...v1.2.0) (2026-05-04)
 
 
