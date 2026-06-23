@@ -1,9 +1,8 @@
 <div align="center">
 <img src="https://repository-images.githubusercontent.com/1221223126/8b637d78-cf17-4d56-bb3a-94d1ff908de5" alt="Social banner for Multivert" />
 
-# Multivert
+# Multivert [![CI](https://github.com/anchildress1/multivert/actions/workflows/ci.yml/badge.svg)](https://github.com/anchildress1/multivert/actions/workflows/ci.yml) [![Deploy](https://github.com/anchildress1/multivert/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/anchildress1/multivert/actions/workflows/deploy-pages.yml)
 
-<!-- Badges here -->
 </div>
 
 A credible, free, sharable web quiz that classifies takers across all five
