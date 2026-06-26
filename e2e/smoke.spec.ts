@@ -111,7 +111,7 @@ test.describe('landing + scroll quiz — structure', () => {
 		await page.goto('/');
 		await waitForNudgeArmed(page);
 		await scrollToElement(page, 'chapter-energy');
-		await expect.poll(() => page.locator('.chapter-head__progress').count()).toBe(1); // NOSONAR — expect.poll() is a valid Playwright assertion
+		await expect.poll(() => page.locator('.chapter-head__progress').count()).toBe(1);
 	});
 
 	test('result section is not in the DOM until every question is answered', async ({ page }) => {
@@ -263,7 +263,7 @@ test.describe('landing + scroll quiz — navigation', () => {
 		});
 		// Anchor on the scrollY actually moving past the hero rather than a
 		// sleep — works across slow runners.
-		await expect.poll(() => page.evaluate(() => globalThis.scrollY)).toBeGreaterThan(beforeY); // NOSONAR — expect.poll() is a valid Playwright assertion
+		await expect.poll(() => page.evaluate(() => globalThis.scrollY)).toBeGreaterThan(beforeY);
 	});
 
 	test('shared chapter header swaps when the user enters a chapter', async ({ page }) => {
