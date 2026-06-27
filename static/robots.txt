@@ -1,17 +1,44 @@
 # Search engines and live-retrieval bots: by all means, index away.
 #
-# AI training crawlers — the ones that scrape to STORE in a training
-# corpus, not the ones that READ to answer a single user query — get a
-# hard pass. This is a portfolio piece, not your training data.
+# The distinction that drives this file: bots that FETCH on a user's behalf
+# to cite or summarize are doing the same job as a search engine — they get
+# in. Bots that HOOVER the page into an opaque training corpus to never pay
+# for it again do not. This is a portfolio piece, not your training data.
 #
-# The distinction matters: bots that fetch on a user's behalf to cite or
-# summarize are doing the same job as a search engine. Bots that hoover
-# the page into an opaque corpus to never pay for it again are not. The
-# blocklist below is the second category, drawn from each vendor's
-# public training-opt-out user agent. Honor system applies — try to live
-# up to it.
+# A bot with its own group below is governed ONLY by that group (most-specific
+# match wins), so the `*` allow-all at the bottom does not loosen the blocks.
+# Honor system applies — try to live up to it.
 
-# --- Training-only crawlers (STORE) ---
+# --- Answer-engine / retrieval crawlers (READ to answer a user) — allowed ---
+# These power AI search + citations. Explicitly allowed so the site is findable
+# in Perplexity, ChatGPT search, and Claude. Google Search and AI Overviews run
+# off the regular Googlebot index (default-allowed below) — NOT Google-Extended,
+# which only governs Gemini training/grounding and is blocked with the rest.
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+# --- Training-only crawlers (STORE in a corpus) — blocked ---
+# Google-Extended is here on purpose: per Google's docs it controls only whether
+# content trains Gemini / grounds Vertex AI, and does NOT affect Search ranking
+# or AI Overviews. Blocking it keeps training off without costing findability.
+User-agent: Google-Extended
+Disallow: /
+
 User-agent: GPTBot
 Disallow: /
 
@@ -21,13 +48,7 @@ Disallow: /
 User-agent: anthropic-ai
 Disallow: /
 
-User-agent: Google-Extended
-Disallow: /
-
 User-agent: CCBot
-Disallow: /
-
-User-agent: PerplexityBot
 Disallow: /
 
 User-agent: Bytespider
@@ -51,7 +72,7 @@ Disallow: /
 User-agent: ImagesiftBot
 Disallow: /
 
-# --- Everyone else (search, live retrieval, user-initiated fetches) ---
+# --- Everyone else (Google, Bing, user-initiated fetches) ---
 User-agent: *
 Allow: /
 

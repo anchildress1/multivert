@@ -69,7 +69,66 @@
 					"@type": "Organization",
 					"name": "Multivert",
 					"url": "https://multivert.pages.dev/"
+				},
+				"author": {
+					"@type": "Person",
+					"name": "Ashley Childress",
+					"url": "https://anchildress1.dev",
+					"sameAs": ["https://github.com/anchildress1"]
 				}
+			}
+		</script>
+
+		<!-- WebSite + DefinedTermSet. The five verts are visible on the page
+		     (hero list + lede), so defining them as terms is compliant and
+		     gives search + AI answer engines a structured, citable gloss of
+		     each type — the exact thing "what is an otrovert" queries want. -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@graph": [
+					{
+						"@type": "WebSite",
+						"@id": "https://multivert.pages.dev/#website",
+						"url": "https://multivert.pages.dev/",
+						"name": "Multivert",
+						"description": "A five-sided personality quiz scoring introvert, extrovert, ambivert, omnivert, and otrovert as five independent fits.",
+						"inLanguage": "en"
+					},
+					{
+						"@type": "DefinedTermSet",
+						"@id": "https://multivert.pages.dev/#verts",
+						"name": "The five verts",
+						"description": "Five personality types treated as independent vectors rather than a single introvert/extrovert bucket.",
+						"hasDefinedTerm": [
+							{
+								"@type": "DefinedTerm",
+								"name": "Introvert",
+								"description": "Inward, charged by quiet — energy comes from low-stimulation, solo or small-group time."
+							},
+							{
+								"@type": "DefinedTerm",
+								"name": "Extrovert",
+								"description": "Outward, charged by people — energy comes from social stimulation and larger groups."
+							},
+							{
+								"@type": "DefinedTerm",
+								"name": "Ambivert",
+								"description": "The dial, not a default — adjusts toward introversion or extroversion to fit the situation; a stable middle."
+							},
+							{
+								"@type": "DefinedTerm",
+								"name": "Omnivert",
+								"description": "Oscillates between extremes — swings hard between all-in and off-grid rather than sitting in a mild middle."
+							},
+							{
+								"@type": "DefinedTerm",
+								"name": "Otrovert",
+								"description": "Belongs without belonging — present in a group while feeling like an observer; identity is not tied to membership."
+							}
+						]
+					}
+				]
 			}
 		</script>
 
