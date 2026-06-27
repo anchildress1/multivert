@@ -11,7 +11,9 @@
 
 # --- Answer-engine / retrieval crawlers (READ to answer a user) — allowed ---
 # These power AI search + citations. Explicitly allowed so the site is findable
-# in Perplexity, ChatGPT search, Claude, and Google AI Overviews.
+# in Perplexity, ChatGPT search, and Claude. Google Search and AI Overviews run
+# off the regular Googlebot index (default-allowed below) — NOT Google-Extended,
+# which only governs Gemini training/grounding and is blocked with the rest.
 User-agent: PerplexityBot
 Allow: /
 
@@ -30,10 +32,13 @@ Allow: /
 User-agent: Claude-SearchBot
 Allow: /
 
-User-agent: Google-Extended
-Allow: /
-
 # --- Training-only crawlers (STORE in a corpus) — blocked ---
+# Google-Extended is here on purpose: per Google's docs it controls only whether
+# content trains Gemini / grounds Vertex AI, and does NOT affect Search ranking
+# or AI Overviews. Blocking it keeps training off without costing findability.
+User-agent: Google-Extended
+Disallow: /
+
 User-agent: GPTBot
 Disallow: /
 

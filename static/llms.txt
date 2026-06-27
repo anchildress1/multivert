@@ -5,7 +5,8 @@
 > types on independent scales — the fits do not sum to 100%, because you
 > can legitimately be high on more than one. 35 statements, one slider per
 > statement, a five-way breakdown at the end. Answers never leave your
-> device; there is no tracking, no account, no persistence.
+> device: no tracking, no account, no server-side persistence — they live
+> only in tab-session storage and are gone when the tab closes.
 
 Site: https://multivert.pages.dev/
 Author: Ashley Childress (https://anchildress1.dev, https://github.com/anchildress1)
