@@ -53,7 +53,7 @@ describe('descriptions registry — field-guide deep block', () => {
 
 	it.each(TYPES)('%s has exactly five distinct, non-trivial trueThings', (t) => {
 		const { trueThings } = descriptions[t].deep;
-		expect(trueThings.length).toBe(5);
+		expect(trueThings).toHaveLength(5);
 		expect(new Set(trueThings).size).toBe(trueThings.length);
 		for (const line of trueThings) {
 			expect(line.trim().length).toBeGreaterThanOrEqual(20);
@@ -62,7 +62,7 @@ describe('descriptions registry — field-guide deep block', () => {
 
 	it.each(TYPES)('%s has exactly 3 distinct, non-trivial giveaways', (t) => {
 		const { giveaways } = descriptions[t].deep;
-		expect(giveaways.length).toBe(3);
+		expect(giveaways).toHaveLength(3);
 		expect(new Set(giveaways).size).toBe(giveaways.length);
 		for (const tell of giveaways) {
 			expect(tell.trim().length).toBeGreaterThanOrEqual(20);

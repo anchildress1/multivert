@@ -77,7 +77,7 @@ describe('ChapterIntro — header rendering', () => {
 	it('mounts a single ThemeToggle button inside the chapter head', () => {
 		const { container } = render(ChapterIntro, { props: baseProps });
 		const toggles = container.querySelectorAll('button.toggle');
-		expect(toggles.length).toBe(1);
+		expect(toggles).toHaveLength(1);
 	});
 });
 
