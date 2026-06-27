@@ -111,7 +111,7 @@ test.describe('landing + scroll quiz — structure', () => {
 		await page.goto('/');
 		await waitForNudgeArmed(page);
 		await scrollToElement(page, 'chapter-energy');
-		await expect.poll(() => page.locator('.chapter-head__progress').count()).toBe(1);
+		await expect(page.locator('.chapter-head__progress')).toHaveCount(1);
 	});
 
 	test('result section is not in the DOM until every question is answered', async ({ page }) => {
@@ -251,19 +251,16 @@ test.describe('landing + scroll quiz — navigation', () => {
 		// the nudge-listener flag is the same hydration signal the rest of the
 		// suite anchors on.
 		await waitForNudgeArmed(page);
-		await page.evaluate(() =>
-			globalThis.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior })
-		);
-		const beforeY = await page.evaluate(() => globalThis.scrollY);
 		await page.evaluate(() => {
 			const btn = Array.from(document.querySelectorAll('button')).find((b) =>
 				/^\s*begin/i.test(b.textContent ?? '')
 			);
 			btn?.click();
 		});
-		// Anchor on the scrollY actually moving past the hero rather than a
-		// sleep — works across slow runners.
-		await expect.poll(() => page.evaluate(() => globalThis.scrollY)).toBeGreaterThan(beforeY);
+		// Assert the actual intent — the first chapter lands in view — instead
+		// of proxying through a raw scrollY delta. The web-first assertion
+		// auto-retries, so it stays robust across slow runners.
+		await expect(page.locator('#chapter-energy')).toBeInViewport();
 	});
 
 	test('shared chapter header swaps when the user enters a chapter', async ({ page }) => {

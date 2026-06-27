@@ -56,14 +56,14 @@ describe('VertSheet — field-guide content', () => {
 	it.each(ARCHETYPES)('renders all five trueThings for %s as a numbered list', (archetype) => {
 		const { container } = renderSheet({ archetype });
 		const items = container.querySelectorAll('.sheet__truth');
-		expect(items.length).toBe(descriptions[archetype].deep.trueThings.length);
-		expect(items.length).toBe(5);
+		expect(items).toHaveLength(descriptions[archetype].deep.trueThings.length);
+		expect(items).toHaveLength(5);
 	});
 
 	it.each(ARCHETYPES)('renders the giveaways for %s', (archetype) => {
 		const { container } = renderSheet({ archetype });
 		const tells = container.querySelectorAll('.sheet__giveaway');
-		expect(tells.length).toBe(descriptions[archetype].deep.giveaways.length);
+		expect(tells).toHaveLength(descriptions[archetype].deep.giveaways.length);
 	});
 
 	it.each(ARCHETYPES)('renders whatHelps and whatKillsYou definitions for %s', (archetype) => {
