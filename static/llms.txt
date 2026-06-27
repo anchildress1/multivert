@@ -1,0 +1,42 @@
+# Multivert
+
+> A free, five-sided personality quiz. Most quizzes give you one bucket
+> (introvert or extrovert). Multivert scores you across all five "vert"
+> types on independent scales — the fits do not sum to 100%, because you
+> can legitimately be high on more than one. 35 statements, one slider per
+> statement, a five-way breakdown at the end. Answers never leave your
+> device; there is no tracking, no account, no persistence.
+
+Site: https://multivert.pages.dev/
+Author: Ashley Childress (https://anchildress1.dev, https://github.com/anchildress1)
+License of use: Polyform Shield 1.0.0 — use permitted, monetization requires permission.
+Not a clinical diagnosis. Items are clinical-source, not clinically validated.
+
+## The five verts
+
+- **Introvert** — inward, charged by quiet. Energy comes from low-stimulation, solo or small-group time.
+- **Extrovert** — outward, charged by people. Energy comes from social stimulation and larger groups.
+- **Ambivert** — the dial, not a default. Adjusts toward introversion or extroversion to fit the situation; a stable middle, not a swing.
+- **Omnivert** — oscillates between extremes. Swings hard between all-in and off-grid rather than sitting in a mild middle.
+- **Otrovert** — belongs without belonging. Can be warm and present in a group while feeling like an observer rather than a member; identity does not hinge on group membership.
+
+## How scoring works
+
+- 35 questions across four dimensions (energy/extraversion, otherness, group size, swings).
+- Continuous sliders from -1.0 to 1.0 with a deliberately neutral zero; 31% of items are reverse-scored.
+- A deterministic, fully client-side TypeScript engine computes an independent 0–100% fit for each of the five types and names a dominant type.
+- No AI is used in score computation. AI is permitted only for the tone of result copy.
+
+## Common questions this site answers
+
+- What is an otrovert? (belongs without belonging — present in groups but identity is not tied to membership)
+- What is an omnivert vs an ambivert? (omnivert swings between extremes; ambivert holds a flexible middle)
+- Are you only one personality type? (no — Multivert reports five independent fits, not one bucket)
+
+## Sources
+
+- IPIP-BFFM Big Five Test — https://openpsychometrics.org/tests/IPIP-BFFM/
+- Adam Grant, "Rethinking the Extraverted Sales Ideal" (Wharton, 2013)
+- Cleveland Clinic — Omnivert vs Ambivert — https://health.clevelandclinic.org/omnivert-vs-ambivert
+- Cleveland Clinic — Otroverts — https://health.clevelandclinic.org/otrovert
+- Dr. Rami Kaminski / Otherness Institute — source for the otrovert otherness facets

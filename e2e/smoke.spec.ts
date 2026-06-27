@@ -433,8 +433,18 @@ test.describe('share + SEO surface', () => {
 			'content',
 			'summary_large_image'
 		);
-		// JSON-LD presence (deep-checked elsewhere if/when search consoles complain).
-		await expect(page.locator('script[type="application/ld+json"]')).toHaveCount(1);
+		// JSON-LD surface: the Quiz block plus a WebSite + DefinedTermSet graph
+		// that gives search/AI engines a structured gloss of the five verts.
+		const ldNodes = page.locator('script[type="application/ld+json"]');
+		await expect(ldNodes).toHaveCount(2);
+		const ldTypes = await ldNodes.evaluateAll((nodes) =>
+			nodes.flatMap((n) => {
+				const parsed = JSON.parse(n.textContent ?? '{}');
+				const entries = Array.isArray(parsed['@graph']) ? parsed['@graph'] : [parsed];
+				return entries.map((e: { '@type'?: string }) => e['@type']);
+			})
+		);
+		expect(ldTypes).toEqual(expect.arrayContaining(['Quiz', 'WebSite', 'DefinedTermSet']));
 	});
 });
 
