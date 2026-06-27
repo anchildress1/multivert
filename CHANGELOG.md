@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.3.0](https://github.com/anchildress1/multivert/compare/v1.2.1...v1.3.0) (2026-06-27)
+
+
+### Features
+
+* **seo:** AI + search findability surface ([#58](https://github.com/anchildress1/multivert/issues/58)) ([6cc5d7b](https://github.com/anchildress1/multivert/commit/6cc5d7bc9c1a8e390a710dc632bc4c578e91f68c))
+
+
+### Bug Fixes
+
+* **deps:** clear all dependency security advisories ([#56](https://github.com/anchildress1/multivert/issues/56)) ([bec9abe](https://github.com/anchildress1/multivert/commit/bec9abea75f8c4e911c4f503bd41480afabcbe55))
+
+
+### Tests
+
+* clear SonarCloud assertion findings, strengthen the tests ([#59](https://github.com/anchildress1/multivert/issues/59)) ([c3e8bc3](https://github.com/anchildress1/multivert/commit/c3e8bc31e46b68c4ee3b2beef24fe5459d68667b))
+
 ## [1.2.1](https://github.com/anchildress1/multivert/compare/v1.2.0...v1.2.1) (2026-06-22)
 
 
