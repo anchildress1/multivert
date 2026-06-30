@@ -9,13 +9,14 @@ updates:
       timezone: 'America/Chicago'
     open-pull-requests-limit: 2
     versioning-strategy: 'increase'
+    cooldown:
+      default-days: 7
     commit-message:
-      prefix: 'chore(deps)'
-      prefix-development: 'chore(deps-dev)'
+      prefix: 'chore'
+      prefix-development: 'chore'
       include: 'scope'
     labels:
       - 'dependencies'
-      - 'npm'
     groups:
       svelte-stack:
         patterns:
@@ -63,12 +64,13 @@ updates:
       time: '06:00'
       timezone: 'America/Chicago'
     open-pull-requests-limit: 2
+    cooldown:
+      default-days: 7
     commit-message:
-      prefix: 'ci(deps)'
+      prefix: 'ci'
       include: 'scope'
     labels:
       - 'dependencies'
-      - 'github-actions'
     groups:
       gha:
         patterns:
