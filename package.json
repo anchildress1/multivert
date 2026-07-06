@@ -71,7 +71,7 @@
     "@tailwindcss/vite": "^4.3.1",
     "@testing-library/jest-dom": "6.9.1",
     "@testing-library/svelte": "^5.4.1",
-    "@types/node": "^26.0.0",
+    "@types/node": "^26.0.1",
     "@vitest/coverage-v8": "^4.1.9",
     "eslint": "^10.6.0",
     "eslint-plugin-svelte": "^3.20.0",
@@ -87,6 +87,6 @@
     "typescript-eslint": "^8.62.1",
     "vite": "8.1.0",
     "vitest": "^4.1.9",
-    "wrangler": "^4.103.0"
+    "wrangler": "^4.105.0"
   }
 }
