@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/anchildress1/multivert/compare/v1.3.0...v1.3.1) (2026-09-15)
+
+
+### Bug Fixes
+
+* patch transitive deps to close open Dependabot alerts ([#87](https://github.com/anchildress1/multivert/issues/87)) ([b76b805](https://github.com/anchildress1/multivert/commit/b76b8055b6d6aacebf40edb51796a532f6baa13d))
+
 ## [1.3.0](https://github.com/anchildress1/multivert/compare/v1.2.1...v1.3.0) (2026-06-27)
 
 
