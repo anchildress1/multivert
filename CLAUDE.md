@@ -34,8 +34,8 @@ findings before pushing. CI will re-run all of these.
 
 - Tailwind v4 uses `@import 'tailwindcss'` in `src/app.css`. Do not add a
   `tailwind.config.*` file — there isn't one.
-- `svelte.config.js` is JS (not TS) so the adapter import resolves cleanly.
-- `tsconfig.json` extends `./.svelte-kit/tsconfig.json`. Run `pnpm exec svelte-kit
-sync` after fresh installs if path aliases (`$lib`, `$app/*`) are missing.
+- SvelteKit and the Cloudflare adapter are configured in `vite.config.ts`.
+- `tsconfig.json` extends `$app/tsconfig`; native `#lib/*` imports are defined in
+  `package.json`. Run `pnpm exec svelte-kit sync` after fresh installs.
 - For Cloudflare Pages routing, build output lives in `.svelte-kit/cloudflare`
   (not `build/`). The deploy workflow points there explicitly.
