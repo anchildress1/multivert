@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
+	import { browser } from '$app/env';
 	import {
 		ACCENT_ROTATION,
 		CHAPTERS,
@@ -8,17 +8,17 @@
 		ARCHETYPES,
 		type Archetype,
 		type Chapter
-	} from '$lib/archetypes';
-	import ChapterIntro from '$lib/components/ChapterIntro.svelte';
-	import FiveDots from '$lib/components/FiveDots.svelte';
-	import QuestionRow from '$lib/components/QuestionRow.svelte';
-	import Tagline from '$lib/components/Tagline.svelte';
-	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
-	import VertSheet from '$lib/components/VertSheet.svelte';
-	import Wordmark from '$lib/components/Wordmark.svelte';
-	import { descriptions } from '$lib/descriptions';
-	import { questions } from '$lib/questions';
-	import { createAnswersStore, QUESTIONS_BY_DIMENSION } from '$lib/state/answers.svelte';
+	} from '#lib/archetypes.ts';
+	import ChapterIntro from '#lib/components/ChapterIntro.svelte';
+	import FiveDots from '#lib/components/FiveDots.svelte';
+	import QuestionRow from '#lib/components/QuestionRow.svelte';
+	import Tagline from '#lib/components/Tagline.svelte';
+	import ThemeToggle from '#lib/components/ThemeToggle.svelte';
+	import VertSheet from '#lib/components/VertSheet.svelte';
+	import Wordmark from '#lib/components/Wordmark.svelte';
+	import { descriptions } from '#lib/descriptions.ts';
+	import { questions } from '#lib/questions.ts';
+	import { createAnswersStore, QUESTIONS_BY_DIMENSION } from '#lib/state/answers.svelte.ts';
 
 	const store = createAnswersStore();
 	const grouped = QUESTIONS_BY_DIMENSION;

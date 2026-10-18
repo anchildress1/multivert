@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-vi.mock('$app/environment', () => ({ browser: true }));
+vi.mock('$app/env', () => ({ browser: true }));
 
 const { questions } = await import('../questions');
 const { createAnswersStore, QUESTIONS_BY_DIMENSION } = await import('./answers.svelte');

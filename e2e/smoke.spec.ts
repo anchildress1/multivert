@@ -459,6 +459,7 @@ test.describe('landing + scroll quiz — answer interaction', () => {
 		// Click-only path (no input/change) — the slider's `onclick` handler
 		// must commit even when the value didn't change.
 		await page.goto('/');
+		await waitForNudgeArmed(page);
 		await scrollToElement(page, 'chapter-energy');
 		await dispatchSliderClick(page, 'e-01');
 		await expect(page.locator('article#q-e-01')).toHaveAttribute('data-state', 'answered');

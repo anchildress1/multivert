@@ -1,11 +1,11 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-// SSR-equivalent context: `$app/environment` reports `browser: false`.
+// SSR-equivalent context: `$app/env` reports `browser: false`.
 // The store has belt-and-braces guards in `readStoredAnswers` and `persist`
 // that short-circuit when not in the browser. These tests exercise those
 // guards specifically — the main answers.test.ts mocks `browser: true` so
 // those branches are otherwise unreachable.
-vi.mock('$app/environment', () => ({ browser: false }));
+vi.mock('$app/env', () => ({ browser: false }));
 
 const { questions } = await import('../questions');
 const { createAnswersStore } = await import('./answers.svelte');

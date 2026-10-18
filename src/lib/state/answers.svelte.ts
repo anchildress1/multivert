@@ -1,7 +1,7 @@
-import { browser } from '$app/environment';
-import type { Dimension } from '$lib/archetypes';
-import { questions, type Question } from '$lib/questions';
-import { scoreQuiz, type AnsweredItem, type QuizResult } from '$lib/scoring';
+import { browser } from '$app/env';
+import type { Dimension } from '#lib/archetypes.ts';
+import { questions, type Question } from '#lib/questions.ts';
+import { scoreQuiz, type AnsweredItem, type QuizResult } from '#lib/scoring.ts';
 
 /**
  * Reactive answers store.

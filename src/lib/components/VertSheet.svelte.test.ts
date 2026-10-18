@@ -1,8 +1,8 @@
 // @vitest-environment jsdom
 import { cleanup, fireEvent, render } from '@testing-library/svelte';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { ARCHETYPES, VERT_NAMES, type Archetype } from '$lib/archetypes';
-import { descriptions } from '$lib/descriptions';
+import { ARCHETYPES, VERT_NAMES, type Archetype } from '#lib/archetypes.ts';
+import { descriptions } from '#lib/descriptions.ts';
 import VertSheet from './VertSheet.svelte';
 
 afterEach(cleanup);
