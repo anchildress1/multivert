@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
-	import { VERT_NAMES, ARCHETYPES, type Archetype } from '$lib/archetypes';
-	import { descriptions } from '$lib/descriptions';
+	import { browser } from '$app/env';
+	import { VERT_NAMES, ARCHETYPES, type Archetype } from '#lib/archetypes.ts';
+	import { descriptions } from '#lib/descriptions.ts';
 
 	interface Props {
 		archetype: Archetype | null;

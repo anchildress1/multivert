@@ -231,12 +231,12 @@ describe('themeStore — SSR (browser=false)', () => {
 	afterEach(() => {
 		vi.resetModules();
 		vi.unstubAllGlobals();
-		vi.doUnmock('$app/environment');
+		vi.doUnmock('$app/env');
 	});
 
 	it('initializes to "system" without touching localStorage', async () => {
 		vi.resetModules();
-		vi.doMock('$app/environment', () => ({ browser: false }));
+		vi.doMock('$app/env', () => ({ browser: false }));
 		const getItem = vi.fn(() => 'dark');
 		vi.stubGlobal('localStorage', {
 			getItem,
@@ -253,7 +253,7 @@ describe('themeStore — SSR (browser=false)', () => {
 
 	it('apply does not write to localStorage when not in the browser', async () => {
 		vi.resetModules();
-		vi.doMock('$app/environment', () => ({ browser: false }));
+		vi.doMock('$app/env', () => ({ browser: false }));
 		const setItem = vi.fn();
 		vi.stubGlobal('localStorage', {
 			getItem: () => null,

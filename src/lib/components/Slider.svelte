@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Archetype } from '$lib/scoring';
+	import type { Archetype } from '#lib/scoring.ts';
 
 	export type SliderState = 'unset' | 'in-progress' | 'answered';
 

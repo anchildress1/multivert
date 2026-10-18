@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { Archetype, ChapterNumeral } from '$lib/archetypes';
-	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
+	import type { Archetype, ChapterNumeral } from '#lib/archetypes.ts';
+	import ThemeToggle from '#lib/components/ThemeToggle.svelte';
 
 	interface Props {
 		id: string;

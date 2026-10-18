@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ARCHETYPES, type Archetype } from '$lib/archetypes';
+	import { ARCHETYPES, type Archetype } from '#lib/archetypes.ts';
 
 	interface Props {
 		size?: number;

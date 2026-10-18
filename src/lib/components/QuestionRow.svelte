@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Slider, { type SliderState } from '$lib/components/Slider.svelte';
-	import type { Question } from '$lib/questions';
-	import type { Archetype } from '$lib/scoring';
+	import Slider, { type SliderState } from '#lib/components/Slider.svelte';
+	import type { Question } from '#lib/questions.ts';
+	import type { Archetype } from '#lib/scoring.ts';
 
 	interface Props {
 		question: Question;

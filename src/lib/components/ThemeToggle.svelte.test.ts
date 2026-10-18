@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { cleanup, fireEvent, render } from '@testing-library/svelte';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { themeStore } from '$lib/state/theme.svelte';
+import { themeStore } from '#lib/state/theme.svelte.ts';
 import ThemeToggle from './ThemeToggle.svelte';
 
 const STORAGE_KEY = 'multivert:theme';

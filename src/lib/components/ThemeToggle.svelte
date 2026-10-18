@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { themeStore, type Theme } from '$lib/state/theme.svelte';
+	import { themeStore, type Theme } from '#lib/state/theme.svelte.ts';
 
 	$effect(() => themeStore.subscribeSystem());
 
