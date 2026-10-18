@@ -94,8 +94,7 @@ Need a one-off prod deploy from a specific tag? `gh workflow run deploy-pages.ym
 ├── .github/workflows/       # ci.yml, release-please.yml, deploy-pages.yml, codeql.yml
 ├── AGENTS.md                # contributor + AI-agent contract
 ├── Makefile                 # canonical command surface
-├── vite.config.ts           # SvelteKit + adapter-cloudflare config
-├── vite.config.ts           # Tailwind v4 plugin + dev server
+├── vite.config.ts           # SvelteKit, Cloudflare adapter, Tailwind + dev server
 └── release-please-config.json
 ```
 
