@@ -161,6 +161,7 @@ test.describe('landing + scroll quiz — forward-progress lock', () => {
 	test('subsequent forward-scroll attempts re-pulse (the effect does not get stuck)', async ({
 		page
 	}) => {
+		await page.clock.install();
 		// Regression pin: a reactivity self-loop on `pulseActive` (read inside
 		// the effect's guard) once made every nudge after the first a no-op.
 		await page.goto('/');
@@ -175,8 +176,8 @@ test.describe('landing + scroll quiz — forward-progress lock', () => {
 			.toBe(0);
 
 		// Second nudge — must pulse again, not silently no-op. Wait past the
-		// 700ms in-route debounce before firing.
-		await page.waitForTimeout(750);
+		// 700ms in-route debounce by advancing the browser clock.
+		await page.clock.fastForward(750);
 		await dispatchForwardWheel(page);
 		await expect(page.locator('article#q-e-01.row--nudged')).toBeAttached();
 		await expect
@@ -184,7 +185,7 @@ test.describe('landing + scroll quiz — forward-progress lock', () => {
 			.toBe(0);
 
 		// Third nudge — for good measure.
-		await page.waitForTimeout(750);
+		await page.clock.fastForward(750);
 		await dispatchForwardWheel(page);
 		await expect(page.locator('article#q-e-01.row--nudged')).toBeAttached();
 	});
@@ -210,8 +211,13 @@ test.describe('landing + scroll quiz — forward-progress lock', () => {
 				})
 			);
 		});
-		// Tiny settle window — confirm no row picked up the nudge class.
-		await page.waitForTimeout(120);
+		// Flush the next rendering frame, where the row schedules its pulse.
+		await page.evaluate(
+			() =>
+				new Promise<void>((resolve) =>
+					requestAnimationFrame(() => requestAnimationFrame(() => resolve()))
+				)
+		);
 		await expect(page.locator('article.row--nudged')).toHaveCount(0);
 	});
 

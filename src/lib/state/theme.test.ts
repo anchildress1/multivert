@@ -54,32 +54,21 @@ describe('themeStore — initialization (browser, localStorage seeded)', () => {
 		delete document.documentElement.dataset.theme;
 	});
 
-	it('reads a saved "light" preference on import', async () => {
-		const store = fakeStorage();
-		store.setItem(STORAGE_KEY, 'light');
-		vi.stubGlobal('localStorage', store);
-		stubMatchMedia(false);
-		const { themeStore } = await import('./theme.svelte');
-		expect(themeStore.current).toBe('light');
-	});
-
-	it('reads a saved "dark" preference on import', async () => {
-		const store = fakeStorage();
-		store.setItem(STORAGE_KEY, 'dark');
-		vi.stubGlobal('localStorage', store);
-		stubMatchMedia(true);
-		const { themeStore } = await import('./theme.svelte');
-		expect(themeStore.current).toBe('dark');
-	});
-
-	it('falls back to "system" when localStorage holds a bogus value', async () => {
-		const store = fakeStorage();
-		store.setItem(STORAGE_KEY, 'auto');
-		vi.stubGlobal('localStorage', store);
-		stubMatchMedia(false);
-		const { themeStore } = await import('./theme.svelte');
-		expect(themeStore.current).toBe('system');
-	});
+	it.each([
+		{ saved: 'light', systemDark: false, expected: 'light' },
+		{ saved: 'dark', systemDark: true, expected: 'dark' },
+		{ saved: 'auto', systemDark: false, expected: 'system' }
+	])(
+		'initializes to $expected when localStorage contains $saved',
+		async ({ saved, systemDark, expected }) => {
+			const store = fakeStorage();
+			store.setItem(STORAGE_KEY, saved);
+			vi.stubGlobal('localStorage', store);
+			stubMatchMedia(systemDark);
+			const { themeStore } = await import('./theme.svelte');
+			expect(themeStore.current).toBe(expected);
+		}
+	);
 
 	it('falls back to "system" when localStorage.getItem throws', async () => {
 		const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
