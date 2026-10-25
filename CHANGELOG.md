@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.3.1](https://github.com/anchildress1/multivert/compare/v1.3.0...v1.3.1) (2026-10-25)
+
+
+### Bug Fixes
+
+* patch transitive deps to close open Dependabot alerts ([#87](https://github.com/anchildress1/multivert/issues/87)) ([b76b805](https://github.com/anchildress1/multivert/commit/b76b8055b6d6aacebf40edb51796a532f6baa13d))
+
+
+### Tests
+
+* resolve Sonar duplication and fixed-wait findings ([#104](https://github.com/anchildress1/multivert/issues/104)) ([2426418](https://github.com/anchildress1/multivert/commit/242641898f84976940a3a418f6f56846cbd9f54b))
+
 ## [1.3.0](https://github.com/anchildress1/multivert/compare/v1.2.1...v1.3.0) (2026-06-27)
 
 
