@@ -75,7 +75,7 @@
     "@tailwindcss/vite": "^4.3.3",
     "@testing-library/jest-dom": "7.0.1",
     "@testing-library/svelte": "^5.4.2",
-    "@types/node": "^26.6.5",
+    "@types/node": "^26.6.6",
     "@vitest/coverage-v8": "^5.0.5",
     "eslint": "^10.13.0",
     "eslint-plugin-svelte": "^3.23.1",
@@ -87,11 +87,11 @@
     "svelte": "^5.57.2",
     "svelte-check": "^4.7.7",
     "tailwindcss": "^4.3.3",
-    "typescript": "^6.0.3",
+    "typescript": "^7.0.2",
     "typescript-eslint": "^8.72.0",
     "vite": "8.3.5",
     "vitest": "^5.0.5",
-    "wrangler": "^4.151.3"
+    "wrangler": "^4.156.1"
   },
   "imports": {
     "#lib/*": "./src/lib/*"
